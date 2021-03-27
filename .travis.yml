@@ -7,11 +7,12 @@ git:
 language: cpp
 
 matrix:
-  include:
+  exclude:
     - os: linux
       dist: bionic
       sudo: required
       compiler: gcc
+  include:
     - os: osx
       osx_image: xcode10.2
       compiler: clang
