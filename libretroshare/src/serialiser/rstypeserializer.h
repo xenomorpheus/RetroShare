@@ -979,10 +979,7 @@ protected:
 	{
 		std::decay_t<T> memberBackup = member;
 		uint32_t ret = 1;
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wbool-compare"
 		while(member > 127) { ++ret; member >>= 7; }
-#pragma GCC diagnostic pop
 		Dbg2() << __PRETTY_FUNCTION__ << " memberBackup: " << memberBackup
 		       << " return: " << ret << std::endl;
 		return ret;
@@ -1006,8 +1003,6 @@ protected:
 #endif
 
 		bool ok = true;
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wbool-compare"
 		/* Check with < and not with <= here as we write last byte after
 		 * the loop. Order of && operands very important here! */
 		while(member > 127 && (ok = (offset < size)))
@@ -1017,7 +1012,6 @@ protected:
 			// Remove the seven bits we just wrote
 			member >>= 7;
 		}
-#pragma GCC diagnostic pop
 
 		if(!(ok = ok && offset <= size))
 		{
