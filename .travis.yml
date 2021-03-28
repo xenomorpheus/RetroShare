@@ -37,7 +37,6 @@ before_install:
     libqt5x11extras5-dev libqt5designer5 libxapian-dev qttools5-dev
     rapidjson-dev ;
     fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then
   # TODO - if [ $TRAVIS_OS_NAME == osx ]; then brew update ; fi
   - if [ $TRAVIS_OS_NAME == osx ]; then brew install qt5; fi
   - if [ $TRAVIS_OS_NAME == osx ]; then brew link --force qt5 ; fi
@@ -47,7 +46,7 @@ before_install:
     fi
   - if [ $TRAVIS_OS_NAME == osx ]; then brew install p7zip; fi
   - if [ $TRAVIS_OS_NAME == osx ]; then npm install -g appdmg; fi
-    fi
+
 
 
 env:
